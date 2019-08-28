@@ -1,73 +1,76 @@
 package com.gfg.algos.graphs.adjlist;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
-
+	
+	LinkedList<Integer> adjList[];
 	int V;
 	
-	LinkedList<Integer>[] adj;
 	
-	public Graph(int noOfVertices)
-	{
-		this.V = noOfVertices;
-		adj = new LinkedList[V];
-		
-		for(int i=0; i< V; i++) {
-			adj[i] = new LinkedList<>();
-		}
-	}
 	
-	// adds an edge in undirected graph
-	
-	public void addEdge(int src,int dest) {
+	Graph(int V) {
+		this.V = V;
+		adjList = new LinkedList[V];
 		
-		// add edge from scr - which is index of given array , to dest
-		adj[src].add(dest);
-		
-		//since graph is undirected, add an edge from dest to src also
-		
-		adj[dest].add(src);				
-		
-	}
-	
-	// Utility method to display the content of adj[] list - graph nodes
-	
-	public void printGraph() {		
-		
-		
-		for(int i=0; i<V; i++) {
-			
-			System.out.println("Adjacency list of vertex :" + i);
-			System.out.print("head - ");
-			
-			for(Integer element : adj[i]) {
+		for(int i =0; i<adjList.length; i++) {
+			adjList[i] = new LinkedList<>();
+		}		
 				
-				System.out.print(" -> " + element);
+	}
+	
+	public void addEdge(int src, int tar) {
+		
+		adjList[src].add(tar);	
+		
+	}
+	
+	public void levelOrderTraversal(int src) {
+		
+		boolean[] visited = new boolean[V];
+		Queue<Integer> queue = new LinkedList<>();
+		
+		queue.offer(src);
+		
+		visited[src] = true;
+		
+		while(!queue.isEmpty()) {
+			
+			int temp = queue.poll();
+			
+			System.out.print(temp + " ");
+			
+			for(int i : adjList[temp]) {
+				if(!visited[i]) {
+					queue.offer(i);
+					visited[i] = true;
+				}
 			}
 			
-			System.out.println("\n");
+		}
+		
+		
+	}
+	
+	public void depthFirstTraversal(int src) {
+		
+		Queue<Integer> queue = new LinkedList<>();
+		
+		queue.offer(src);
+		
+		
+		
+	}
+	
+	public void printGraph() {
+		for(int i = 0; i<adjList.length; i++) {
+			System.out.print("Vertex V " + i+ " -> ");
+			for(int element : adjList[i]) {
+				System.out.print(element + " - ");
+			}
+			System.out.println();
 		}
 	}
 	
-	
-	public static void main(String[] args) {
-		
-		int V = 5; 
-        Graph graph = new Graph(V); 
-        graph.addEdge(0, 1); 
-        graph.addEdge(0, 4); 
-        graph.addEdge(1, 2); 
-        graph.addEdge(1, 3); 
-        graph.addEdge(1, 4); 
-        graph.addEdge(2, 3); 
-        graph.addEdge(3, 4); 
-       
-        // print the adjacency list representation of  
-        // the above graph 
-        graph.printGraph(); 
-		
-
-	}
-
 }

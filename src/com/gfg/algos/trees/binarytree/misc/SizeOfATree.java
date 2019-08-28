@@ -1,5 +1,8 @@
 package com.gfg.algos.trees.binarytree.misc;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import com.gfg.algos.trees.binarytree.BTREE;
 import com.gfg.algos.trees.bst.BST.Node;
 
@@ -14,7 +17,7 @@ public class SizeOfATree {
 		
 		//System.out.print(newRoot.data + " " );  // uncomment this to see visiting sequence
 		
-		return lsize + rsize +1;
+		return lsize + rsize + 1;
 		
 		/*
 		 *  keeping lsize and rsize is just a trick to make it behave like a counter.
@@ -46,6 +49,37 @@ public class SizeOfATree {
 		
 	}
 	
+	public static int sizeIteratively(Node root) {
+		
+		if(root == null)
+			return 0;
+		
+		Queue<Node> queue = new LinkedList<>();
+		
+		queue.offer(root);
+		
+		int count = 0;
+		
+		while(!queue.isEmpty()) {
+			
+			Node temp = queue.poll();
+			
+			count++;
+			
+			if(temp.left != null)
+			{
+				queue.offer(temp.left);
+			}
+			
+			if(temp.right != null) {
+				queue.offer(temp.right);
+			}		
+			
+		}
+		
+		return count;
+	}
+	
 	
 	/*
 	 *  Tree - 
@@ -72,7 +106,7 @@ public class SizeOfATree {
 		
 		System.out.println(sizeStaticCounter(btree.root));
 		
-		
+		System.out.println(sizeIteratively(btree.root));
 		
 
 	}

@@ -339,11 +339,40 @@ public class BTREE {
 
 
 	}
-	
-//WIth duplicateLeafNode
-	
-public void createSampleBinaryTree3() {
-		
+
+	//WIth duplicateLeafNode
+
+	public void createSampleBinaryTree3() {
+
+		add(10);
+		add(5);
+		add(20);
+		add(9);
+		add(7);
+		add(30);
+		add(40);
+		add(50);
+		add(80);
+		add(50);
+		add(60);
+
+
+		/*
+		 * 								10
+		 * 							/	     \
+		 * 						  5			   20
+		 * 					   /     \      /      \
+		 *                   9       7    30       40
+		 * 				  /    \    / \
+		 * 				 50    80  50  60
+		 */
+
+
+
+	}
+
+	public void createSampleBinaryTree4() {
+
 		add(10);
 		add(5);
 		add(20);
@@ -356,23 +385,100 @@ public void createSampleBinaryTree3() {
 		add(50);
 		add(60);
 		
+		add(70);
+		add(80);
+		add(90);
+		add(100);
 		
+		add(110);
+		add(120);
+		add(130);
+		add(140);
+
+
 		/*
 		 * 								10
 		 * 							/	     \
 		 * 						  5			   20
 		 * 					   /     \      /      \
 		 *                   9       7    30       40
-		 * 				  /    \    / \
-		 * 				 50    80  50  60
-		 */
+		 * 				  /    \    / \   / \     / \  
+		 * 				 50    80  50  60 70 80  90  100
+		 * 				/  \  /   \
+		 * 			 110  120 130 140
+		 * 
+ 		 */
+
+
+
+	}
+
+	
+	public void createSumTree() {
+
+		add(50);
+		add(20);
+		add(30);
+		add(15);
+		add(5);
+		add(27);
+		add(3);
+		add(15);
 		
-		
-		
+
+		/*
+		 * 								50
+		 * 							/	     \
+		 * 						  20		 30
+		 * 					   /     \      /      \
+		 *                   15       5    27       3
+		 * 				  /      
+		 * 				 15
+		 * 
+ 		 */
+
+
+
+	}
+
+	public void createUncoveredCoveredSumTree() {
+
+		root = new Node(10); 
+        root.left = new Node(20);
+        root.right = new Node(30);
+        root.left.left = new Node(40); 
+        root.left.right = new Node(50);
+        root.right.left = new Node(60);
+        root.right.right = new Node(70);
+        root.left.left.left = new Node(80);
+        
+        root.left.right.left = new Node(45);
+         
+        root.left.right.right = new Node(100); 
+        
+         
+        root.left.left.left.right = new Node(5); 
+
+		/*
+		 * 								10
+		 * 							/	     \
+		 * 						  20		 30
+		 * 					   /     \      /      \
+		 *                   40       50    60      70
+		 * 				  /          /  \    
+		 * 				 80         45   100
+		 *                 \
+		 * 					5
+ 		 */
+
+
+
 	}
 
 
-
+	public void clear() {
+		root = null;
+	}
 
 
 }

@@ -1,152 +1,151 @@
 package com.gfg.algos.trees.heap.minheap;
 
-//Java implementation of Min Heap 
-public class MinHeap { 
-	private int[] Heap; 
-	private int size; 
-	private int maxsize; 
+import java.util.ArrayList;
 
-	private static final int FRONT = 1; 
+public class MinHeap {
 
-	public MinHeap(int maxsize) 
-	{ 
-		this.maxsize = maxsize; 
-		this.size = 0; 
-		Heap = new int[this.maxsize + 1]; 
-		Heap[0] = Integer.MIN_VALUE; 
-	} 
+    private ArrayList<Integer> list;
 
-	// Function to return the position of 
-	// the parent for the node currently 
-	// at pos 
-	private int parent(int pos) 
-	{ 
-		return pos / 2; 
-	} 
+    public MinHeap() {
 
-	// Function to return the position of the 
-	// left child for the node currently at pos 
-	private int leftChild(int pos) 
-	{ 
-		return (2 * pos); 
-	} 
+        this.list = new ArrayList<Integer>();
+    }
 
-	// Function to return the position of 
-	// the right child for the node currently 
-	// at pos 
-	private int rightChild(int pos) 
-	{ 
-		return (2 * pos) + 1; 
-	} 
+    public MinHeap(ArrayList<Integer> items) {
 
-	// Function that returns true if the passed 
-	// node is a leaf node 
-	private boolean isLeaf(int pos) 
-	{ 
-		if (pos >= (size / 2) && pos <= size) { 
-			return true; 
-		} 
-		return false; 
-	} 
+        this.list = items;
+        buildHeap();
+    }
 
-	// Function to swap two nodes of the heap 
-	private void swap(int fpos, int spos) 
-	{ 
-		int tmp; 
-		tmp = Heap[fpos]; 
-		Heap[fpos] = Heap[spos]; 
-		Heap[spos] = tmp; 
-	} 
+    public void insert(int item) {
 
-	// Function to heapify the node at pos 
-	private void minHeapify(int pos) 
-	{ 
+        list.add(item);
+        int i = list.size() - 1;
+        int parent = parent(i);
 
-		// If the node is a non-leaf node and greater 
-		// than any of its child 
-		if (!isLeaf(pos)) { 
-			if (Heap[pos] > Heap[leftChild(pos)] 
-				|| Heap[pos] > Heap[rightChild(pos)]) { 
+        while (parent != i && list.get(i) < list.get(parent)) {
 
-				// Swap with the left child and heapify 
-				// the left child 
-				if (Heap[leftChild(pos)] < Heap[rightChild(pos)]) { 
-					swap(pos, leftChild(pos)); 
-					minHeapify(leftChild(pos)); 
-				} 
+            swap(i, parent);
+            i = parent;
+            parent = parent(i);
+        }
+    }
 
-				// Swap with the right child and heapify 
-				// the right child 
-				else { 
-					swap(pos, rightChild(pos)); 
-					minHeapify(rightChild(pos)); 
-				} 
-			} 
-		} 
-	} 
+    public void buildHeap() {
 
-	// Function to insert a node into the heap 
-	public void insert(int element) 
-	{ 
-		if (size >= maxsize) { 
-			return; 
-		} 
-		Heap[++size] = element; 
-		int current = size; 
+        for (int i = list.size() / 2; i >= 0; i--) {
+            minHeapify(i);
+        }
+    }
 
-		while (Heap[current] < Heap[parent(current)]) { 
-			swap(current, parent(current)); 
-			current = parent(current); 
-		} 
-	} 
+    public int extractMin() {
 
-	// Function to print the contents of the heap 
-	public void print() 
-	{ 
-		for (int i = 1; i <= size / 2; i++) { 
-			System.out.print(" PARENT : " + Heap[i] 
-							+ " LEFT CHILD : " + Heap[2 * i] 
-							+ " RIGHT CHILD :" + Heap[2 * i + 1]); 
-			System.out.println(); 
-		} 
-	} 
+        if (list.size() == 0) {
 
-	// Function to build the min heap using 
-	// the minHeapify 
-	public void minHeap() 
-	{ 
-		for (int pos = (size / 2); pos >= 1; pos--) { 
-			minHeapify(pos); 
-		} 
-	} 
+            throw new IllegalStateException("MinHeap is EMPTY");
+        } else if (list.size() == 1) {
 
-	// Function to remove and return the minimum 
-	// element from the heap 
-	public int remove() 
-	{ 
-		int popped = Heap[FRONT]; 
-		Heap[FRONT] = Heap[size--]; 
-		minHeapify(FRONT); 
-		return popped; 
-	} 
+            int min = list.remove(0);
+            return min;
+        }
 
-	// Driver code 
-	public static void main(String[] arg) 
-	{ 
-		System.out.println("The Min Heap is "); 
-		MinHeap minHeap = new MinHeap(15); 
-		minHeap.insert(5); 
-		minHeap.insert(3); 
-		minHeap.insert(17); 
-		minHeap.insert(10); 
-		minHeap.insert(84); 
-		minHeap.insert(19); 
-		minHeap.insert(6); 
-		minHeap.insert(22); 
-		minHeap.insert(9); 
-		minHeap.minHeap(); 
+        // remove the last item ,and set it as new root
+        int min = list.get(0);
+        int lastItem = list.remove(list.size() - 1);
+        list.set(0, lastItem);
 
-		minHeap.print(); 
-		System.out.println("The Min val is " + minHeap.remove()); 
-	} 
-} 
+        // bubble-down until heap property is maintained
+        minHeapify(0);
+
+        // return min key
+        return min;
+    }
+
+    public void decreaseKey(int i, int key) {
+
+        if (list.get(i) < key) {
+
+            throw new IllegalArgumentException("Key is larger than the original key");
+        }
+
+        list.set(i, key);
+        int parent = parent(i);
+
+        // bubble-up until heap property is maintained
+        while (i > 0 && list.get(parent) > list.get(i)) {
+
+            swap(i, parent);
+            i = parent;
+            parent = parent(parent);
+        }
+    }
+
+    private void minHeapify(int i) {
+
+        int left = left(i);
+        int right = right(i);
+        int smallest = -1;
+
+        // find the smallest key between current node and its children.
+        if (left <= list.size() - 1 && list.get(left) < list.get(i)) {
+            smallest = left;
+        } else {
+            smallest = i;
+        }
+
+        if (right <= list.size() - 1 && list.get(right) < list.get(smallest)) {
+            smallest = right;
+        }
+
+        // if the smallest key is not the current key then bubble-down it.
+        if (smallest != i) {
+
+            swap(i, smallest);
+            minHeapify(smallest);
+        }
+    }
+
+    public int getMin() {
+
+        return list.get(0);
+    }
+
+    public boolean isEmpty() {
+
+        return list.size() == 0;
+    }
+
+    private int right(int i) {
+
+        return 2 * i + 2;
+    }
+
+    private int left(int i) {
+
+        return 2 * i + 1;
+    }
+
+    private int parent(int i) {
+
+        if (i % 2 == 1) {
+            return i / 2;
+        }
+
+        return (i - 1) / 2;
+    }
+
+    private void swap(int i, int parent) {
+
+        int temp = list.get(parent);
+        list.set(parent, list.get(i));
+        list.set(i, temp);
+    }
+    
+    public void print() {
+    	
+    	for(int e : list) {
+    		System.out.print(e + " ");
+    	}
+    }
+
+}

@@ -8,7 +8,7 @@ public class LinkedList {
 		public SLNode next;
 		public int data;
 
-		SLNode(int data) {
+		public SLNode(int data) {
 			this.data = data;
 		}
 	}

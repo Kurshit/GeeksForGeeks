@@ -72,6 +72,19 @@ public class LinkedList {
 		}
 
 	}
+	
+	public void printGivenList(SLNode head) {
+		
+		if(head == null)
+			return;
+		
+		while(head != null) {
+			System.out.print(head.data + " ");
+			head = head.next;
+		}
+		
+		System.out.println();
+	}
 
 	public void clear() {
 		head = null;
@@ -185,6 +198,24 @@ public class LinkedList {
 		add(70);
 		add(70);
 		add(70);
+	}
+	
+	public void createIntegerToAddSLL1() {
+		add(7);
+		add(4);
+		add(5);
+	}
+	
+	public void createIntegerToAddSLL2() {
+		add(2);
+		add(3);
+		add(6);
+	}
+	
+	public void createIntegerToAddSLL3() {
+		add(6);
+		add(1);
+		add(4);
 	}
 
 

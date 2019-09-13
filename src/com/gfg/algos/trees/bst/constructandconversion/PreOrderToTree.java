@@ -17,7 +17,7 @@ public class PreOrderToTree {
 		
 		Node root = preToBST.preOrderToBSTMethod2(arr, new Index(), arr[0], Integer.MIN_VALUE, Integer.MAX_VALUE, arr.length);
 		
-		bst.inorder(root);
+		bst.inorderNode(root);
 
 	}
 	

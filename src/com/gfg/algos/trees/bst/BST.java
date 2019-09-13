@@ -33,53 +33,72 @@ public class BST {
 	}
 	
 	public void add(int data) {
-		root = addNode(root, data);
+		
+		root = addNode(root,data);
 	}
 	
 	public Node addNode(Node newRoot, int data) {
 		
-		Node temp = new Node(data);
-		
 		if(newRoot == null)
-			return newRoot = temp;
+			return new Node(data);
 		
-		if(data > newRoot.data)
-			newRoot.right = addNode(newRoot.right, data);
+		if(data < newRoot.data)
+			newRoot.left = addNode(newRoot.left,data);
 		else 
-			newRoot.left = addNode(newRoot.left, data);
+			newRoot.right = addNode(newRoot.right,data);
 		
 		return newRoot;
+		
 	}
 	
 	public void inorder() {
-		inorder(root);
+		inorderNode(root);
+		System.out.println();
 	}
 	
-	public void inorder(Node newRoot) {
+	public void inorderNode(Node newRoot) {
 		if(newRoot == null)
 			return;
 		
-		inorder(newRoot.left);
+		inorderNode(newRoot.left);
 		System.out.print(newRoot.data + " ");
-		inorder(newRoot.right);
+		inorderNode(newRoot.right);
 	}
 	
-	public Node search(int data) {
-		return searchNode(this.root, data);
+	public void preOrder() {
+		preOrderNode(root);
+		System.out.println();
 	}
 	
-	public Node searchNode(Node newRoot, int data) {
+	public void preOrderNode(Node newRoot) {
 		
 		if(newRoot == null)
-			return null;
+			return;
 		
-		if(newRoot != null && newRoot.data == data)
-			return newRoot;
+		System.out.print(newRoot.data + " ");
+		preOrderNode(newRoot.left);
+		preOrderNode(newRoot.right);
 		
-		if(data > newRoot.data)
-			return searchNode(newRoot.right, data);
-		else
+		
+	}
+	
+	public boolean search(int data) {
+		return searchNode(root,data);
+	}
+	
+	public boolean searchNode(Node newRoot, int data) {
+		
+		if(newRoot == null)
+			return false;
+		
+		if(newRoot.data == data)
+			return true;
+		
+		if(data < newRoot.data)
 			return searchNode(newRoot.left, data);
+		else
+			return searchNode(newRoot.right, data);	
+		
 	}
 	
 	public void delete(int data) {
@@ -91,40 +110,38 @@ public class BST {
 		if(newRoot == null)
 			return null;
 		
-		if(data < newRoot.data) {
+		if(data < newRoot.data)
 			newRoot.left = deleteNode(newRoot.left, data);
-		}
-		else if(data > newRoot.data) {
+		else if(data > newRoot.data)
 			newRoot.right = deleteNode(newRoot.right, data);
-		}
-		else {			
+		else {
+			
 			if(newRoot.left == null)
 				return newRoot.right;
-			else if(newRoot.right == null)
+			
+			if(newRoot.right == null)
 				return newRoot.left;
 			
-			newRoot.data = minValue(newRoot.right);
-			
-			newRoot.right = deleteNode(newRoot.right, newRoot.data);
-			
+			int minValue = getMinValue(newRoot.right);
+			newRoot.data = minValue;
+			newRoot.right = deleteNode(newRoot.right, minValue);
 		}
-		
 		
 		return newRoot;
 	}
 	
-	public int minValue(Node newRoot) {
-		int minValue = newRoot.data;
+	
+	public int getMinValue(Node root) {
 		
-		while(newRoot.left != null) {
-			minValue = newRoot.left.data;
-			newRoot = newRoot.left;
+		int min = root.data;
+		
+		while(root != null) {
+			min = root.data;
+			root = root.left;					
 		}
 		
-		return minValue;
+		return min;
 	}
-	
-	
 	public void createSampleTree() {
 		 add(50);
 		 add(30);

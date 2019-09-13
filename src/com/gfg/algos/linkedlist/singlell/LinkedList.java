@@ -70,6 +70,8 @@ public class LinkedList {
 			System.out.print(ptr.data + " ");
 			ptr = ptr.next;
 		}
+		
+		System.out.println();
 
 	}
 	
@@ -150,7 +152,12 @@ public class LinkedList {
 		add(70);
 
 	}
-
+	
+	/*
+	 *  Creates loop at 60th node. 100.next points to 50
+	 * 
+	 */
+	
 	public void createFiveLoopSLL() {
 
 		add(10);
@@ -167,6 +174,36 @@ public class LinkedList {
 		SLNode ptr = head;
 		SLNode loopPtr;
 		while(ptr.data != 60) {
+			ptr = ptr.next;
+			loopPtr = ptr;		
+		}
+		
+		loopPtr = ptr;
+		
+		while(ptr.next != null) {
+			ptr = ptr.next;
+		}
+		
+		ptr.next = loopPtr;		
+
+	}
+	
+	public void createSevenLoopSLL() {
+
+		add(10);
+		add(20);
+		add(30);
+		add(40);
+		add(50);
+		add(60);
+		add(70);
+		add(80);
+		add(90);
+		add(100);
+		
+		SLNode ptr = head;
+		SLNode loopPtr;
+		while(ptr.data != 30) {
 			ptr = ptr.next;
 			loopPtr = ptr;		
 		}
@@ -212,10 +249,44 @@ public class LinkedList {
 		add(6);
 	}
 	
-	public void createIntegerToAddSLL3() {
-		add(6);
+	public void createIntegerWithSize3ToAddSLL3() {
+		add(9);
+		add(9);
+		add(9);
+	}
+	
+	public void createIntegerWithSize2ToAddSLL4() {
 		add(1);
+		add(8);
+		
+	}
+	
+	public void createSorted1() {
+		add(5);
+		add(8);
+		add(12);
+		add(16);
+	}
+	
+	public void createSorted2() {
+		add(2);
 		add(4);
+		add(9);
+		add(18);
+	}
+	
+	public void createSorted3() {
+		add(1);
+		add(3);
+		add(15);
+		add(25);
+	}
+	
+	public void createSorted4() {
+		add(0);
+		add(7);
+		add(11);
+		add(23);
 	}
 
 

@@ -317,6 +317,29 @@ public class BTREE {
 
 
 	}
+	
+	public void createMaxPathSubTree1() {
+
+		root = new Node(-10);
+		root.left = new Node(9);
+		root.right = new Node(20);
+		root.right.left = new Node(15);
+		root.right.right = new Node(7);
+		
+
+		/*
+		 * 							   -10
+		 * 						 	  /	    \
+		 * 						     9		 20
+		 * 								   /    \
+		 * 								 15      7
+		 * 
+		 */
+
+
+
+	}
+
 
 	public void createSampleBinaryTree2() {
 

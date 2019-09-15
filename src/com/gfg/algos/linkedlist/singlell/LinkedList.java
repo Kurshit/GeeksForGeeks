@@ -50,16 +50,16 @@ public class LinkedList {
 		return count;
 
 	}
-	
+
 	public int sizeIterative(SLNode head) {
-		
+
 		if(head == null)
 			return 0;
-		
+
 		return 1 + sizeIterative(head.next);
-				
-		
-		
+
+
+
 	}
 
 	public void printSL() {
@@ -70,21 +70,21 @@ public class LinkedList {
 			System.out.print(ptr.data + " ");
 			ptr = ptr.next;
 		}
-		
+
 		System.out.println();
 
 	}
-	
+
 	public void printGivenList(SLNode head) {
-		
+
 		if(head == null)
 			return;
-		
+
 		while(head != null) {
 			System.out.print(head.data + " ");
 			head = head.next;
 		}
-		
+
 		System.out.println();
 	}
 
@@ -141,6 +141,62 @@ public class LinkedList {
 		add(150);
 	}
 
+	public void createSortedDuplicateNodesList() {
+
+		add(10);
+		add(20);
+		add(20);
+		add(20);
+		add(30);
+		add(40);
+		add(50);
+		add(50);
+		add(50);
+		add(50);
+		add(60);
+		add(60);
+		add(60);
+		add(60);
+		add(60);
+	}
+
+	public void createUnSortedDuplicateNodesList() {
+
+		add(80);
+		add(20);
+		add(40);
+		add(10);
+		add(30);
+		add(40);
+		add(80);
+		add(50);
+		add(70);
+		add(20);
+		add(5);
+		add(50);
+		add(70);
+		add(90);
+		add(20);
+	}
+
+	public void createIntersectionList1() {
+
+		add(1);
+		add(2);
+		add(3);
+		add(4);
+		add(6);		
+	}
+
+	public void createIntersectionList2() {
+
+		add(2);
+		add(4);
+		add(6);
+		add(8);
+
+	}
+
 	public void createSevenNodeSLL() {
 
 		add(10);
@@ -152,12 +208,7 @@ public class LinkedList {
 		add(70);
 
 	}
-	
-	/*
-	 *  Creates loop at 60th node. 100.next points to 50
-	 * 
-	 */
-	
+
 	public void createFiveLoopSLL() {
 
 		add(10);
@@ -170,54 +221,24 @@ public class LinkedList {
 		add(80);
 		add(90);
 		add(100);
-		
+
 		SLNode ptr = head;
 		SLNode loopPtr;
 		while(ptr.data != 60) {
 			ptr = ptr.next;
 			loopPtr = ptr;		
 		}
-		
+
 		loopPtr = ptr;
-		
+
 		while(ptr.next != null) {
 			ptr = ptr.next;
 		}
-		
+
 		ptr.next = loopPtr;		
 
 	}
-	
-	public void createSevenLoopSLL() {
 
-		add(10);
-		add(20);
-		add(30);
-		add(40);
-		add(50);
-		add(60);
-		add(70);
-		add(80);
-		add(90);
-		add(100);
-		
-		SLNode ptr = head;
-		SLNode loopPtr;
-		while(ptr.data != 30) {
-			ptr = ptr.next;
-			loopPtr = ptr;		
-		}
-		
-		loopPtr = ptr;
-		
-		while(ptr.next != null) {
-			ptr = ptr.next;
-		}
-		
-		ptr.next = loopPtr;		
-
-	}
-	
 	public void createSortedDuplicateSLL() {
 
 		add(10);
@@ -236,57 +257,136 @@ public class LinkedList {
 		add(70);
 		add(70);
 	}
-	
+
 	public void createIntegerToAddSLL1() {
 		add(7);
 		add(4);
 		add(5);
 	}
-	
+
 	public void createIntegerToAddSLL2() {
 		add(2);
 		add(3);
 		add(6);
 	}
-	
+
+	public void createIntegerToAddSLL3() {
+		add(6);
+		add(1);
+		add(4);
+	}
+
+
+	public void createSortedList1() {
+		add(2);
+		add(8);
+		add(15);
+	}
+
+
+	public void createSortedList2() {
+		add(4);
+		add(9);
+		add(13);
+	}
+
+	public void multiplyNum1() {
+		add(4);
+		add(9);
+		add(7);
+	}
+
+	public void multiplyNum2() {
+		add(1);
+		add(9);		
+	}
+
 	public void createIntegerWithSize3ToAddSLL3() {
 		add(9);
 		add(9);
 		add(9);
 	}
-	
+
 	public void createIntegerWithSize2ToAddSLL4() {
 		add(1);
 		add(8);
-		
+
 	}
-	
+
+	public void createSevenLoopSLL() {
+
+		add(10);
+		add(20);
+		add(30);
+		add(40);
+		add(50);
+		add(60);
+		add(70);
+		add(80);
+		add(90);
+		add(100);
+
+		SLNode ptr = head;
+		SLNode loopPtr;
+		while(ptr.data != 30) {
+			ptr = ptr.next;
+			loopPtr = ptr;		
+		}
+
+		loopPtr = ptr;
+
+		while(ptr.next != null) {
+			ptr = ptr.next;
+		}
+
+		ptr.next = loopPtr;		
+
+	}
+
 	public void createSorted1() {
 		add(5);
 		add(8);
 		add(12);
 		add(16);
 	}
-	
+
 	public void createSorted2() {
 		add(2);
 		add(4);
 		add(9);
 		add(18);
 	}
-	
+
 	public void createSorted3() {
 		add(1);
 		add(3);
 		add(15);
 		add(25);
 	}
-	
+
 	public void createSorted4() {
 		add(0);
 		add(7);
 		add(11);
 		add(23);
+	}
+
+
+	public void createRandomListToSort() {
+
+		add(80);
+		add(20);
+		add(30);
+		add(70);
+		add(90);
+		add(10);
+		add(50);
+		add(60);
+		add(100);
+		add(160);
+		add(120);
+		add(5);
+
 	}
 
 

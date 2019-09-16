@@ -147,6 +147,8 @@ public class AddTwoNumbers {
 		LinkedList head1 = new LinkedList();
 		LinkedList head2 = new LinkedList();
 		
+		// 999 + 18 = 1017
+		
 		head1.createIntegerWithSize3ToAddSLL3();
 		head2.createIntegerWithSize2ToAddSLL4();
 		

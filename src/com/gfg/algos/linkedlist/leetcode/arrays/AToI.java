@@ -38,7 +38,7 @@ public class AToI {
 		 * 		
 		 */		
 		
-		while (str.length() > i && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+		while (i < str.length()  && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
 			result = result * 10 + (str.charAt(i) - '0'); 
 			i++;
 		}

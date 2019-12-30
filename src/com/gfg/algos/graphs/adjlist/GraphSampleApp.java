@@ -19,7 +19,7 @@ public class GraphSampleApp {
 		
 		//graph.printGraph();
 		
-		graph.levelOrderTraversal(2);
+		//graph.levelOrderTraversal(2);
 	}
 
 }

@@ -1,11 +1,19 @@
 package com.gfg.algos.trees.bst.constructandconversion;
 
+import java.util.Scanner;
+
 import com.gfg.algos.trees.bst.BST;
 import com.gfg.algos.trees.bst.BST.Node;
 
 public class PreOrderToTree {
 
 	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int i = scan.nextInt();
+		
+		System.out.println(i);
 		
 		BST bst = new BST();
 		

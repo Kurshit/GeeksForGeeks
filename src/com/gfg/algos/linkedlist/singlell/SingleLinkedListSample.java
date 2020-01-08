@@ -21,7 +21,7 @@ public class SingleLinkedListSample {
 		
 		System.out.println("\nSize :" +ll.size());
 		
-		System.out.println("Size iteratively: " + ll.sizeIterative(ll.head));
+		System.out.println("Size iteratively: " + ll.sizeRecursive(ll.head));
 	}
 
 }

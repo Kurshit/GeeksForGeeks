@@ -66,6 +66,38 @@ public class LoopInSLL {
 
 	}
 	
+	public int noOfNodesInLoop(SLNode head) {
+		
+		if(head == null)
+			return 0;
+		
+		SLNode sptr = head;
+		SLNode fptr = head;
+		int count = 0;
+		while(fptr != null && fptr.next != null) {
+			
+			sptr = sptr.next;
+			fptr = fptr.next.next;
+			
+			if(fptr == sptr ) {
+				
+				SLNode temp = sptr;
+				
+				while(sptr.next != temp) {
+					count++;
+					sptr = sptr.next;
+				}
+				
+				return count + 1;
+			}
+			
+			
+		}
+		
+		return count;
+		
+	}
+	
 	/*
 	 * Following method would return first node in loop. The relation of moving slowPtr and fastPtr to detect a loop is such that, 
 	 * When loop is detected, fptr would always be as far from first node in loop as head of original linked list. 
@@ -172,7 +204,11 @@ public class LoopInSLL {
 
 		System.out.println(loop.loopedNode(ll.head).data);
 		
+		System.out.println("No of nodes in Five Looped LL :" + loop.noOfNodesInLoop(ll.head));
+		
 		System.out.println("First looped node : " +loop.firstLoopedNode(ll.head).data);
+		
+		
 		
 		
 		loop.removeLoop(ll.head);

@@ -7,7 +7,7 @@ class RotateMatrixAnti
 { 
 
 
-	public static void rotateClockwise(int N, int[][] matrix) {
+	public static void rotateClockwiseUsingTranspose(int N, int[][] matrix) {
 		int n = N;
 
 		// transpose matrix
@@ -18,7 +18,7 @@ class RotateMatrixAnti
 				matrix[x][y] = tmp;
 			}
 		}
-		// reverse each row
+		// reverse each column
 		for (int x = 0; x < n; x++) {
 			for (int y = 0; y < n/2 ; y++) {
 				int tmp = matrix[x][y];
@@ -29,7 +29,7 @@ class RotateMatrixAnti
 	}
 	
 
-	public static void rotateAntiClockwise(int N, int[][] matrix) {
+	public static void rotateAntiClockwiseUsingTranspose(int N, int[][] matrix) {
 		int n = N;
 
 		// transpose matrix
@@ -196,7 +196,7 @@ class RotateMatrixAnti
 		System.out.println();
 
 		
-		rotateAntiClockwise(N,mat2);
+		rotateAntiClockwiseUsingTranspose(N,mat2);
 		
 		System.out.println(" Anti Clock Wise Using Transpose: ");
 		displayMatrix(N,mat2);
@@ -210,7 +210,7 @@ class RotateMatrixAnti
 		displayMatrix(N,mat3);
 		System.out.println();
 
-		rotateClockwise(N,mat4);
+		rotateClockwiseUsingTranspose(N,mat4);
 
 		System.out.println("Clock Wise Using Transpose: ");
 		displayMatrix(N,mat4);

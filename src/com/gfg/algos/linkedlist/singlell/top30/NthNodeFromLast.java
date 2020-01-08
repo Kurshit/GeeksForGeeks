@@ -34,6 +34,29 @@ public class NthNodeFromLast {
 		
 		
 	}
+	
+	public static int count = 0;
+	
+	public SLNode findNthFromLastRecursively(SLNode head, int n) {
+		
+		if(head == null) {
+			return null;
+		}
+		
+		SLNode result = findNthFromLastRecursively(head.next, n);
+		
+		if(result != null)
+			return result;
+		count++;
+		if(count == n)
+			return head;
+		
+		
+		
+		return null;
+			
+		
+	}
 
 	public static void main(String[] args) {	
 		
@@ -42,12 +65,15 @@ public class NthNodeFromLast {
 		ll.createSampleSLL1();
 		
 		NthNodeFromLast nth = new NthNodeFromLast();
-		int n = 12; 
+		int n = 6; 
 		SLNode result = nth.findNthFromLast(ll.head, n);
 		
 		if(result != null)
 			System.out.println(result.data);
 		
+		result = nth.findNthFromLastRecursively(ll.head, n);
+		if(result != null)
+			System.out.println(result.data);
 
 	}
 

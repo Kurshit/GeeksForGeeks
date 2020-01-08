@@ -51,12 +51,12 @@ public class LinkedList {
 
 	}
 
-	public int sizeIterative(SLNode head) {
+	public int sizeRecursive(SLNode head) {
 
 		if(head == null)
 			return 0;
 
-		return 1 + sizeIterative(head.next);
+		return 1 + sizeRecursive(head.next);
 
 
 
@@ -185,7 +185,8 @@ public class LinkedList {
 		add(2);
 		add(3);
 		add(4);
-		add(6);		
+		add(6);
+		add(20);
 	}
 
 	public void createIntersectionList2() {
@@ -197,6 +198,48 @@ public class LinkedList {
 
 	}
 
+	public void createIntersectionList3() {
+
+		add(10);
+		add(20);
+		add(30);
+		add(40);
+		add(50);
+		add(60);
+		add(80);
+		add(180);
+		add(280);
+		add(380);
+		add(480);
+		add(580);
+		add(680);
+		
+	}
+
+	public void createIntersectionList4() {
+
+		add(5);
+		add(10);
+		add(15);
+		add(20);
+		add(25);
+		add(30);
+		add(35);
+		add(40);
+		add(45);
+		add(50);
+		add(55);
+		add(60);
+		add(65);
+		add(70);
+		add(75);
+		add(80);
+		add(85);
+		
+
+	}
+
+	
 	public void createSevenNodeSLL() {
 
 		add(10);

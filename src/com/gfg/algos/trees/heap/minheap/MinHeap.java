@@ -37,6 +37,8 @@ public class MinHeap {
             minHeapify(i);
         }
     }
+    
+    //Same as Delete operation - We can not del any other node but root
 
     public int extractMin() {
 
@@ -48,7 +50,13 @@ public class MinHeap {
             int min = list.remove(0);
             return min;
         }
-
+        
+        /* 
+         *  DO NOT use list.remove(0) - it will shift rest of elements to curr index
+         *  
+         *  Use remove() only on last element in list 
+         */
+        
         // remove the last item ,and set it as new root
         int min = list.get(0);
         int lastItem = list.remove(list.size() - 1);
@@ -85,7 +93,7 @@ public class MinHeap {
         int left = left(i);
         int right = right(i);
         int smallest = -1;
-
+                
         // find the smallest key between current node and its children.
         if (left <= list.size() - 1 && list.get(left) < list.get(i)) {
             smallest = left;
@@ -127,11 +135,7 @@ public class MinHeap {
 
     private int parent(int i) {
 
-        if (i % 2 == 1) {
-            return i / 2;
-        }
-
-        return (i - 1) / 2;
+    	return (i - 1) / 2;
     }
 
     private void swap(int i, int parent) {

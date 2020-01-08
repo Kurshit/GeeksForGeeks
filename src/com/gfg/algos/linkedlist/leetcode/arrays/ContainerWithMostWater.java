@@ -12,7 +12,7 @@ package com.gfg.algos.linkedlist.leetcode.arrays;
 
 public class ContainerWithMostWater {
 	
-	//brute force - O(n)
+	//brute force - O(n2)
 	
 	public int maxArea(int[] height) {
 		int max = Integer.MIN_VALUE;

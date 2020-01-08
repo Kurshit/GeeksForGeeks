@@ -20,14 +20,16 @@ public class RootToLeafForGivenPath {
 		if(root == null) 
 			return false;
 		
-		if(root.left == null && root.right == null && index < arr.length && root.data == arr[index] && root.data == arr[arr.length - 1])
-			return true;
-		boolean result = true; 
-		if(index >= arr.length || root.data != arr[index]) {
-			result = false;;
-		}
+		if(index >= arr.length)
+			return false;
 		
-		return result && (pathExists(root.left, arr, index +1) || pathExists(root.right, arr, index + 1));		
+		if(root.data != arr[index])
+			return false;
+		
+		if(root.left == null && root.right == null && root.data == arr[index] && root.data == arr[arr.length - 1])
+			return true;
+		
+		return pathExists(root.left, arr, index +1) || pathExists(root.right, arr, index + 1);		
 		
 	}
 

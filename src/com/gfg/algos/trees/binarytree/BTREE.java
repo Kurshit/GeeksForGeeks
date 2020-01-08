@@ -103,6 +103,21 @@ public class BTREE {
 		inorderNode(newRoot.right);
 
 	}
+	
+	public void preorder() {
+		inorderNode(root);
+	}
+
+	public void preOrderNode(Node newRoot) {
+
+		if(newRoot == null)
+			return;
+
+		System.out.print(newRoot.data + " ");
+		preOrderNode(newRoot.left);
+		preOrderNode(newRoot.right);
+
+	}
 
 
 	public int height() {
@@ -353,10 +368,9 @@ public class BTREE {
 		 * 								10
 		 * 							/	     \
 		 * 						  5			   20
-		 * 					   /     \      /      \
-		 *                   9       7    30       40
-		 * 				  /    \    / \
-		 * 				 70    80  50  60
+		 * 					   /     
+		 *                   9       
+		 * 		
 		 */
 
 

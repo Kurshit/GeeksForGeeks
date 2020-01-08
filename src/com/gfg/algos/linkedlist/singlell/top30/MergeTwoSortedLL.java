@@ -20,7 +20,7 @@ public class MergeTwoSortedLL {
 
 		SLNode ptr = dummy;
 
-		while(ptr != null) {
+		while(head1 != null || head2 != null) {
 
 			if(head1 == null) {
 				ptr.next = head2;

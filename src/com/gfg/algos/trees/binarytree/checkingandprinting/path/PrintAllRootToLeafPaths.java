@@ -37,6 +37,7 @@ public class PrintAllRootToLeafPaths {
 			printPathsRecur(node.right, path, pathLen); 
 		} 
 	} 
+	
 
 	/* Utility that prints out an array on a line */
 	void printArray(int ints[], int len)  
@@ -109,6 +110,17 @@ public class PrintAllRootToLeafPaths {
 		PrintAllRootToLeafPaths path = new PrintAllRootToLeafPaths();
 
 		//path.printPaths(btree.root);
+		
+		/*
+		 * 								10
+		 * 							/	     \
+		 * 						  5			   20
+		 * 					   /     \      /      \
+		 *                   9       7    30       40
+		 * 				  /    \    / \
+		 * 				 70    80  50  60
+		 */
+
 		
 		path.printPathIteratively(btree.root);
 

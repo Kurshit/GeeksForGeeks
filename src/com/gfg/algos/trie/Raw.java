@@ -4,18 +4,41 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 public class Raw {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		List<Integer> list =Arrays.asList(1,2,3,4);
+		Student s = new Student();
 		
-		Iterator itr = list.iterator();
-		int i = 0;
-		while(itr.hasNext()) {
-			System.out.println(i);
-		}
-
+		//s.id = -5;
+		
+		s.setId(-5);
+		
+		
+		
+		System.out.println(s.getId());
 	}
 
+}
+
+class Student {
+	
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) throws Exception {
+		
+		if(id<0) {
+			throw new Exception("Invalid");
+		}
+		
+		this.id = id;
+	}
+	
+	
 }

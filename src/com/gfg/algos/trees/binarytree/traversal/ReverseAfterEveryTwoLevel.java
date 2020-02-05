@@ -71,8 +71,7 @@ public class ReverseAfterEveryTwoLevel {
 				nodeCount--;
 				
 			}
-			
-			
+						
 			if(rightToLeft) {
 				
 				while(!stack.isEmpty()) {

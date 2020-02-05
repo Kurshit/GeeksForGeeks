@@ -78,6 +78,41 @@ public class LevelOrderOnNewLine {
 		}
 	}
 	
+	public void levelOrderDelimiterApproach(Node root) {
+				
+		if(root == null)
+			return;
+		
+		Queue<Node> queue = new LinkedList<>();
+		queue.offer(root);
+		queue.offer(null);
+		
+		while(!queue.isEmpty()) {
+			
+			Node temp = queue.poll();
+			
+			if(temp == null) {
+				if(queue.isEmpty())
+					return;
+				else {
+					System.out.println();
+					queue.offer(null);
+				}
+			} else {
+				
+				System.out.print(temp.data + " ");
+				
+				if(temp.left != null)
+					queue.offer(temp.left);
+					
+				if(temp.right != null)
+					queue.offer(temp.right);
+				
+			}
+					
+		}
+	}
+	
 	public void levelOrderNodeCountApproach(Node root) {
 		if(root == null)
 			return;
@@ -141,6 +176,9 @@ public class LevelOrderOnNewLine {
 		lnl.levelOrderTwoQueueApproach(btree.root);
 		System.out.println("\nUsing Node count approach:\n");
 		lnl.levelOrderNodeCountApproach(btree.root);
+		
+		System.out.println("\nUsing dlimeter approach");
+		lnl.levelOrderDelimiterApproach(btree.root);
 		
 
 	}

@@ -323,15 +323,46 @@ public class BTREE {
 		 * 								10
 		 * 							/	     \
 		 * 						  5			   20
-		 * 					   /     \      /      \
-		 *                   9       7    30       40
-		 * 				  /    \    / \
-		 * 				 70    80  50  60
+		 * 					   /     \       /      \
+		 *                   9       7     30       40
+		 * 				  /    \    / \    
+		 * 				 70    80  50  60 
 		 */
 
 
 
 	}
+	
+	public void createSampleBinaryTree5() {
+
+		add(10);
+		add(5);
+		add(20);
+		add(9);
+		add(7);
+		add(30);
+		add(40);
+		add(70);
+		add(80);
+		add(50);
+		add(60);
+		add(100);
+
+
+		/*
+		 * 								10
+		 * 							/	     \
+		 * 						  5			   20
+		 * 					   /     \       /      \
+		 *                   9       7     30       40
+		 * 				  /    \    / \    /
+		 * 				 70    80  50  60 100
+		 */
+
+
+
+	}
+	
 	
 	public void createMaxPathSubTree1() {
 
@@ -473,6 +504,29 @@ public class BTREE {
 		 * 				 15
 		 * 
  		 */
+
+
+
+	}
+	
+	public void createSumTreeLeftRight() {
+
+		add(26);
+		add(10);
+		add(3);
+		add(4);
+		add(6);
+		add(3);		
+		
+		 /*
+		 *
+		 *     	  	  26
+	     *   		/   \
+	     * 		   10     3
+	     *		 /    \     \
+	  	 *		4      6      3
+		 *
+		 */
 
 
 

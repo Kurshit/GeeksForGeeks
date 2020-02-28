@@ -413,6 +413,26 @@ public class LinkedList {
 		add(11);
 		add(23);
 	}
+	
+	public void createSorted5() {
+		add(1);
+		add(2);
+		add(4);
+		
+		/*
+		 *   1 --> 2 --> 4
+		 */	
+	}
+	
+	public void createSorted6() {
+		add(1);
+		add(3);
+		add(4);
+		
+		/*
+		 *   1 --> 3 --> 4
+		 */	
+	}
 
 
 	public void createRandomListToSort() {

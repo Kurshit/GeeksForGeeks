@@ -19,12 +19,12 @@ public class MergeTwoLists {
 		while(true) {
 			
 			if(h1 == null) {
-				ptr = h2;
+				ptr.next = h2;
 				break;
 			}
 			
 			if(h2 == null) {
-				ptr = h1;
+				ptr.next = h1;
 				break;
 			}
 			
@@ -57,6 +57,28 @@ public class MergeTwoLists {
 		MergeTwoLists merge = new MergeTwoLists();
 		
 		SLNode result =  merge.mergeTwo(list1.head, list2.head);
+		
+		list1.printGivenList(result);
+		
+		
+		list1.clear();
+		list2.clear();
+		
+			
+		list1.createSorted5();
+		
+		/*
+		 *   1 --> 2 --> 4
+		 */	
+		
+		list2.createSorted6();
+		
+		/*
+		 *   1 --> 3 --> 4
+		 */
+		
+		System.out.println();
+		result =  merge.mergeTwo(list1.head, list2.head);
 		
 		list1.printGivenList(result);
 

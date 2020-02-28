@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class Graph {
 	
-	private int V;
-	private LinkedList<Integer>[] adjList;
+	public int V;
+	public LinkedList<Integer>[] adjList;
 	
 	
 	public Graph(int V) {

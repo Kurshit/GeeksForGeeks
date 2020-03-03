@@ -20,14 +20,14 @@ public class MinHeap {
     public void insert(int item) {
 
         list.add(item);
-        int i = list.size() - 1;
-        int parent = parent(i);
+        int index = list.size() - 1;
+        int parent = parent(index);
 
-        while (parent != i && list.get(i) < list.get(parent)) {
+        while (parent != index && list.get(index) < list.get(parent)) {
 
-            swap(i, parent);
-            i = parent;
-            parent = parent(i);
+            swap(index, parent);
+            index = parent;
+            parent = parent(index);
         }
     }
 
@@ -43,7 +43,6 @@ public class MinHeap {
     public int extractMin() {
 
         if (list.size() == 0) {
-
             throw new IllegalStateException("MinHeap is EMPTY");
         } else if (list.size() == 1) {
 

@@ -32,7 +32,7 @@ public class MaxHeap {
         list.set(i, temp);
     }
     
-    public void add(int key) {
+    public void insert(int key) {
     	
     	list.add(key);
     	int index = list.size() - 1;
@@ -56,9 +56,9 @@ public class MaxHeap {
     		return list.remove(0);
     	
     	int max = list.get(0);
-    	int last = list.remove(list.size() - 1);
+    	int lastItem = list.remove(list.size() - 1);
     	
-    	list.set(0, last);
+    	list.set(0, lastItem);
     	
     	heapify(0);
     	return max;   	
@@ -94,13 +94,13 @@ public class MaxHeap {
 		
 		MaxHeap max = new MaxHeap();
 		
-		max.add(20);
-		max.add(30);
-		max.add(2);
-		max.add(10);
-		max.add(5);
-		max.add(50);
-		max.add(60);
+		max.insert(20);
+		max.insert(30);
+		max.insert(2);
+		max.insert(10);
+		max.insert(5);
+		max.insert(50);
+		max.insert(60);
 		
 		System.out.println(max.list);
 		System.out.println(max.extractMax());

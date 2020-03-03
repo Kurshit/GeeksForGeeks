@@ -13,7 +13,7 @@ public class MergeKSortedLists {
 	 * 
 	 */
 	
-	public SLNode mergerKSortedLists(SLNode[] headers) {
+	public SLNode mergerKSortedListsUsingStack(SLNode[] headers) {
 
 		Stack<SLNode> stack = new Stack<>();
 
@@ -26,7 +26,7 @@ public class MergeKSortedLists {
 			SLNode head1 = stack.pop();
 			SLNode head2 = stack.pop();
 
-			SLNode result = sortTheTwo(head1,  head2);
+			SLNode result = mergeTheTwo(head1,  head2);
 
 			stack.push(result);
 
@@ -51,7 +51,7 @@ public class MergeKSortedLists {
 
 		while(last !=0) {			
 			int first = 0;
-			headers[first] = sortTheTwo(headers[first], headers[last]);
+			headers[first] = mergeTheTwo(headers[first], headers[last]);
 			last--;
 		}
 
@@ -64,7 +64,7 @@ public class MergeKSortedLists {
 	
 	public SLNode mergeUsingPriorityQueue(SLNode[] headers) {
 		
-		
+		// we need to override compare method of Comparator to provide manual sorting
 		
 		PriorityQueue<SLNode> pq = new PriorityQueue<>((o1,o2) -> o1.data - o2.data);		
 		
@@ -124,7 +124,7 @@ public class MergeKSortedLists {
 		ptr.next = temp;
 	}
 
-	public SLNode sortTheTwo(SLNode head1, SLNode head2) {
+	public SLNode mergeTheTwo(SLNode head1, SLNode head2) {
 		if(head1 == null)
 			return head2;
 

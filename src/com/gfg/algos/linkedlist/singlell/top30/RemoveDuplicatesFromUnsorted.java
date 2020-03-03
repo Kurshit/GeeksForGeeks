@@ -1,4 +1,4 @@
-package com.gfg.algos.linkedlist.singlell.sorting;
+package com.gfg.algos.linkedlist.singlell.top30;
 
 import java.util.HashSet;
 

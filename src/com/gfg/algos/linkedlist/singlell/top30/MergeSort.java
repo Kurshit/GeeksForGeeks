@@ -1,4 +1,4 @@
-package com.gfg.algos.linkedlist.singlell.sorting;
+package com.gfg.algos.linkedlist.singlell.top30;
 
 import com.gfg.algos.linkedlist.singlell.LinkedList;
 import com.gfg.algos.linkedlist.singlell.LinkedList.SLNode;

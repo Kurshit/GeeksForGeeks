@@ -16,8 +16,8 @@ public class IntersectionOfSLL {
 		if(h1 == null || h2 == null)
 			return null;
 
-		SLNode res = new SLNode(-1);
-		SLNode ptr = res;
+		SLNode dummyNode = new SLNode(-1);
+		SLNode ptr = dummyNode;
 
 		while(h1 != null || h2 != null) {
 
@@ -50,7 +50,7 @@ public class IntersectionOfSLL {
 
 		ptr.next= null;
 
-		return res.next;
+		return dummyNode.next;
 
 
 	}

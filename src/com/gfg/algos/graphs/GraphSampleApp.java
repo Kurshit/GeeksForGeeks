@@ -1,4 +1,4 @@
-package com.gfg.algos.graphs.adjlist;
+package com.gfg.algos.graphs;
 
 public class GraphSampleApp {
 	

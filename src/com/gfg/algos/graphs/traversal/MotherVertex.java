@@ -1,8 +1,8 @@
-package com.gfg.algos.graphs.easy;
+package com.gfg.algos.graphs.traversal;
 
 import java.util.Iterator;
 
-import com.gfg.algos.graphs.adjlist.Graph;
+import com.gfg.algos.graphs.Graph;
 
 public class MotherVertex {
 

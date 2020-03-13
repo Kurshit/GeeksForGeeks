@@ -1,4 +1,4 @@
-package com.gfg.algos.graphs.adjlist;
+package com.gfg.algos.graphs;
 
 import java.util.ArrayList; 
 import java.util.LinkedList; 

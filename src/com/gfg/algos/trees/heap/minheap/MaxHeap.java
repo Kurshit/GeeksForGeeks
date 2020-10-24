@@ -1,6 +1,8 @@
 package com.gfg.algos.trees.heap.minheap;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MaxHeap {
 	
@@ -9,6 +11,19 @@ public class MaxHeap {
 	public MaxHeap() {
 		this.list = new ArrayList<>();
 	}
+	
+	public MaxHeap(ArrayList<Integer> items) {
+
+        this.list = items;
+        buildMaxHeap();
+    }
+	
+	private void buildMaxHeap() {
+
+        for (int i = list.size() / 2; i >= 0; i--) {
+            heapify(i);
+        }
+    }
 	
 	private int right(int i) {
 
@@ -88,13 +103,35 @@ public class MaxHeap {
     	
     }
     
+    public void print() {
+    	
+    	for(int e : list) {
+    		System.out.print(e + " ");
+    	}
+    }
+
+    
     
     
 	public static void main(String[] args) {
 		
-		MaxHeap max = new MaxHeap();
+		ArrayList<Integer> list = new ArrayList<>();
 		
-		max.insert(20);
+		list.add(4);
+		list.add(10);
+		list.add(3);
+		list.add(5);
+		list.add(1);
+		list.add(8);
+		list.add(2);
+		list.add(20);
+		
+		
+		MaxHeap max = new MaxHeap(list);
+		
+		max.print();
+		
+/*		max.insert(20);
 		max.insert(30);
 		max.insert(2);
 		max.insert(10);
@@ -104,7 +141,7 @@ public class MaxHeap {
 		
 		System.out.println(max.list);
 		System.out.println(max.extractMax());
-		System.out.println(max.list);
+		System.out.println(max.list); */
 	}
 
 }

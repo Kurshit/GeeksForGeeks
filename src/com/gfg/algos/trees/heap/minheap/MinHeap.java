@@ -88,7 +88,7 @@ public class MinHeap {
     }
 
     private void minHeapify(int i) {
-
+ 
         int left = left(i);
         int right = right(i);
         int smallest = -1;
@@ -105,6 +105,8 @@ public class MinHeap {
         }
 
         // if the smallest key is not the current key then bubble-down it.
+        // This condition is to check - the root that we began to minify with, if that is the smallest one then the tree is 
+        // already heap
         if (smallest != i) {
 
             swap(i, smallest);
@@ -132,6 +134,8 @@ public class MinHeap {
         return 2 * i + 1;
     }
 
+    
+    //returns the index not an element
     private int parent(int i) {
 
     	return (i - 1) / 2;

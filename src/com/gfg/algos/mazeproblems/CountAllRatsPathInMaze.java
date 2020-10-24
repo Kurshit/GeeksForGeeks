@@ -31,7 +31,7 @@ package com.gfg.algos.mazeproblems;
  *   
  */
 
-public class PrintRatsPathInMaze {
+public class CountAllRatsPathInMaze {
 	
 	/*
 	 *  Solution: 
@@ -46,11 +46,14 @@ public class PrintRatsPathInMaze {
 		
 	}
 	
+	static int count = 0;
+	
 	public void printRatsPathInMazeUtil(int[][] maze, int n, int x, int y, int[][] solution) {
 		
 		if( x == n-1 && y == n-1) {
 			solution[x][y] = 1;
 			printSolution(solution,n);
+			count++;			
 			System.out.println();
 			return;
 		}
@@ -83,9 +86,9 @@ public class PrintRatsPathInMaze {
 		
 		int[][] maze = {{1,1,0},{1,1,1},{1,1,1}};
 		
-		PrintRatsPathInMaze ratMaze = new PrintRatsPathInMaze();
+		CountAllRatsPathInMaze ratMaze = new CountAllRatsPathInMaze();
 		ratMaze.printRatsPathInMaze(maze, n);		
-
+		System.out.println(count);
 	}
 
 }

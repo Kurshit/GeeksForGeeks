@@ -15,7 +15,7 @@ public class TopologicalSorting
 		V = v; 
 		adj = new LinkedList[v]; 
 		for (int i=0; i<v; ++i) 
-			adj[i] = new LinkedList(); 
+			adj[i] = new LinkedList<>(); 
 	} 
 
 	// Function to add an edge into the graph 
@@ -23,7 +23,7 @@ public class TopologicalSorting
 
 	// A recursive function used by topologicalSort 
 	void topologicalSortUtil(int v, boolean visited[], 
-							Stack stack) 
+							Stack<Integer> stack) 
 	{ 
 		// Mark the current node as visited. 
 		visited[v] = true; 

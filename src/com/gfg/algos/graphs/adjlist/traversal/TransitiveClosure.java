@@ -2,7 +2,7 @@ package com.gfg.algos.graphs.adjlist.traversal;
 
 import java.util.Iterator;
 
-import com.gfg.algos.graphs.adjlist.Graph;
+import com.gfg.algos.graphs.adjlist.UGraph;
 
 public class TransitiveClosure {
 
@@ -51,7 +51,7 @@ public class TransitiveClosure {
 	 */
 	
 	int V = 4;
-	Graph graph = new Graph(V);
+	UGraph graph = new UGraph(V);
 	int[][] tcResult = new int[V][V];
 	
 	public void transitiveClosureUsingDFS() {
@@ -66,7 +66,7 @@ public class TransitiveClosure {
 		
 		tcResult[src][dest] = 1;
 		
-		Iterator<Integer> itr = graph.adjList[dest].iterator();	
+		Iterator<Integer> itr = graph.adj[dest].iterator();	
 		
 		while(itr.hasNext()) {
 			

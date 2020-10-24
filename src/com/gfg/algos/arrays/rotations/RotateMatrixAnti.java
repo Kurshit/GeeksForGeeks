@@ -40,7 +40,7 @@ class RotateMatrixAnti
 				matrix[x][y] = tmp;
 			}
 		}
-		// reverse each row
+		// reverse each column
 		for (int y = 0; y < n; y++) {
 			for (int x = 0; x < n/2 ; x++) {
 				int tmp = matrix[x][y];

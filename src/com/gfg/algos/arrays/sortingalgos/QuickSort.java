@@ -12,27 +12,27 @@ class QuickSort
 	int partition(int arr[], int low, int high) 
 	{ 
 		int pivot = arr[high]; 
-		int i = (low-1); // index of smaller element 
-		for (int j=low; j<high; j++) 
+		int ptr = (low-1); // index of smaller element 
+		for (int i=low; i<high; i++) 
 		{ 
 			// If current element is smaller than the pivot 
-			if (arr[j] < pivot) 
+			if (arr[i] < pivot) 
 			{ 
-				i++; 
+				ptr++; 
 
 				// swap arr[i] and arr[j] 
-				int temp = arr[i]; 
-				arr[i] = arr[j]; 
-				arr[j] = temp; 
+				int temp = arr[ptr]; 
+				arr[ptr] = arr[i]; 
+				arr[i] = temp; 
 			} 
 		} 
 
-		// swap arr[i+1] and arr[high] (or pivot) 
-		int temp = arr[i+1]; 
-		arr[i+1] = arr[high]; 
+		ptr++;
+		int temp = arr[ptr]; 
+		arr[ptr] = arr[high]; 
 		arr[high] = temp; 
 
-		return i+1; 
+		return ptr; 
 	} 
 
 

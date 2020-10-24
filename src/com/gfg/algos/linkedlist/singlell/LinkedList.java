@@ -188,6 +188,12 @@ public class LinkedList {
 		add(6);
 		add(20);
 	}
+	
+	public void createTwoIntersectingLists(SLNode newHead) {
+		add(100);
+		add(200);
+		head.next.next = newHead.next.next.next.next;
+	}
 
 	public void createIntersectionList2() {
 

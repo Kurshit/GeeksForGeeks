@@ -25,7 +25,8 @@ public class SerializeAndDeserialize {
 
 	// Encodes a tree to a single string.
 	public String serialize(Node root) {
-		return rserialize(root, "");
+		String result = rserialize(root, "");
+		return result.substring(0,result.length()-1);
 	}
 
 
@@ -53,7 +54,7 @@ public class SerializeAndDeserialize {
 
 	public String serializeLevelOrder(Node root) {
 		if(root == null)  {
-			return "";
+			return "null";
 		}
 		
 		Queue<Node> queue = new LinkedList<>();
@@ -71,7 +72,8 @@ public class SerializeAndDeserialize {
 				queue.add(temp.right);
 			}
 		}
-		return resultString.toString().trim();
+		String result = resultString.toString().trim();
+		return result.substring(0,result.length()-1);
 	}
 
 	// Decodes your encoded data to tree.

@@ -11,11 +11,11 @@ public class LCAInBST {
 		if(root == null)
 			return null;
 		
-		if(root.data > n1 && root.data > n2) {
+		if(n1 < root.data  && n2 < root.data ) {
 			return lcaRecursively(root.left, n1, n2);
 		}
 		
-		if(root.data > n1 && root.data > n2) {
+		if(n1 > root.data && n2 > root.data ) {
 			return lcaRecursively(root.right, n1, n2);			
 		}
 		

@@ -2,20 +2,20 @@ package com.gfg.algos.graphs.easy;
 
 import java.util.Iterator;
 
-import com.gfg.algos.graphs.adjlist.Graph;
+import com.gfg.algos.graphs.adjlist.UGraph;
 
 public class MotherVertex {
 
-	public static void findMotherVertex(Graph graph, int V) {
+	public static void findMotherVertex(UGraph graph, int V) {
 
 		boolean[] visited = new boolean[V];
 
-		int v = -1;
+		int motherVertex = -1;
 
 		for (int i = 0; i < V; i++) {
-			if (visited[i] == false) {
+			if (!visited[i]) {
 				DFSUtil(graph, i, visited);
-				v = i;
+				motherVertex = i;
 			}
 		}
 		
@@ -24,7 +24,7 @@ public class MotherVertex {
             visited[i] = false;
         }
 		
-		DFSUtil(graph, v, visited);
+		DFSUtil(graph, motherVertex, visited);
         for(int i = 0; i < V; i++)
         {
             if(visited[i] == false)
@@ -33,17 +33,17 @@ public class MotherVertex {
                 return;
             }
         }
-        System.out.println(" Mother Vertex: "  + v);
+        System.out.println(" Mother Vertex: "  + motherVertex);
 		
 
 	}
 
-	public static void DFSUtil(Graph graph, int v, boolean visited[]) {
+	public static void DFSUtil(UGraph graph, int v, boolean visited[]) {
 		// Mark the current node as visited and print it
 		visited[v] = true;
 
 		// Recur for all the vertices adjacent to this vertex
-		Iterator<Integer> i = graph.adjList[v].listIterator();
+		Iterator<Integer> i = graph.adj[v].listIterator();
 		while (i.hasNext()) {
 			int n = i.next();
 			if (!visited[n])
@@ -55,7 +55,7 @@ public class MotherVertex {
 
 		int V = 7;
 
-		Graph graph = new Graph(V);
+		UGraph graph = new UGraph(V);
 
 		graph.addEdge(0, 2);
 		graph.addEdge(0, 1);

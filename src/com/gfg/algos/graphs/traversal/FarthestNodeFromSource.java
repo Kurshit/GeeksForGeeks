@@ -1,11 +1,11 @@
-package com.gfg.algos.graphs.adjlist.traversal;
+package com.gfg.algos.graphs.traversal;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.gfg.algos.graphs.adjlist.UGraph;
+import com.gfg.algos.graphs.UGraph;
 
 /* 
  * 	Given an Undirected graph which is a TREE, find farthest node from given source and return result in terms of following

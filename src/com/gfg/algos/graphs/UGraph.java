@@ -1,4 +1,4 @@
-package com.gfg.algos.graphs.adjlist;
+package com.gfg.algos.graphs;
 
 import java.util.Iterator;
 import java.util.LinkedList;

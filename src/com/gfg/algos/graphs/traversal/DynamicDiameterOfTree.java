@@ -1,4 +1,4 @@
-package com.gfg.algos.graphs.adjlist.traversal;
+package com.gfg.algos.graphs.traversal;
 
 import java.io.BufferedReader;
 import java.io.IOException;

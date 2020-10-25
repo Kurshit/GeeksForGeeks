@@ -1,2 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=796d4fc50d3c9eae6fb0466c4992e78650627a57
 eclipse.preferences.version=1
-encoding//src/com/gfg/algos/graphs/adjlist/traversal/CircumFerenceOfTree.java=UTF-8
+encoding//src/com/gfg/algos/graphs/Graph.java=UTF-8
+encoding//src/com/gfg/algos/graphs/traversal/BFS.java=UTF-8
+encoding//src/com/gfg/algos/graphs/traversal/DFS.java=UTF-8
